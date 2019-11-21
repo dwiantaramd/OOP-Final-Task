@@ -15,19 +15,23 @@ public class Dosen extends Orang {
     private String NID;
     private String Email;
     private String Topik;
+    private String Gender;
     
-    public Dosen(String Nama, String KodeDosen, String NID, String Email, String Topik){
+    public Dosen(String Nama, String KodeDosen, String NID, String Gender, String Email, String Topik){
         super(Nama);
         this.KodeDosen = KodeDosen;
         this.NID = NID;
         this.Email = Email;
         this.Topik = Topik;
+        this.Gender = Gender;
+        super.setUsername(NID);
+        super.setPassword(NID);
     }
     //KodeDosen
     public void setKodeDosen(String KodeDosen){
         this.KodeDosen = KodeDosen;
     }
-    public String KodeDosen(){
+    public String getKodeDosen(){
         return KodeDosen;
     }
     //NID
@@ -50,5 +54,16 @@ public class Dosen extends Orang {
     }
     public String getTopik(){
         return Topik;
+    }
+    //Gender
+    public void setGender(String Gender){
+        this.Gender = Gender;
+    }
+    public String getGender(){
+        return this.Gender;
+    } 
+    
+    public void createKelompokTA(String topik){
+        KelasTA = new KelasTugasAkhir(topik);
     }
 }

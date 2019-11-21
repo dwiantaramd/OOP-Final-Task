@@ -48,5 +48,13 @@ public class Mahasiswa extends Orang {
     public void CreateTA(String Judul){
         tugasAkhir = new TugasAkhir(Judul);
     }
+    //Update TugasAkhir
+    public void UpdateTA(String Judul){
+        tugasAkhir.setJudul(Judul);
+    }
+    //Delete TugasAkhir
+    public void DeleteTa(){
+        tugasAkhir = null;
+    }
     
 }
