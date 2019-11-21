@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package Model;
-import java.util.*;
+import Controller.*;
 /**
  *
  * @author MSI
  */
-public class KelasTugasAkhir {
-    private List<Dosen> timDosen;
-    private List<Mahasiswa> DaftarMahasiswa;
-    
-    
+public class Driver {
+    public static void main(String[] args) {
+        new Controller();
+    }
 }
