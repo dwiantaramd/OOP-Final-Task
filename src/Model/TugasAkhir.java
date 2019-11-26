@@ -28,4 +28,12 @@ public class TugasAkhir {
     public void setPembimbing(Dosen dosen, int index){
         Pembimbing.set(index,dosen);
     }
+    
+    public Dosen getPembimbing(int i){
+        return Pembimbing.get(i);
+    }
+    
+    public void addPembimbing(Dosen d){
+        Pembimbing.add(d);
+    }
 }

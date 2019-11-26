@@ -49,5 +49,8 @@ public class KelasTugasAkhir {
     }
     
     
+    public String getTopik(){
+        return this.topik;
+    }
     
 }

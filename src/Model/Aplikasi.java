@@ -12,6 +12,8 @@ import java.util.*;
 public class Aplikasi {
     private List<Dosen> daftarDosen = new ArrayList();
     private List<Mahasiswa> daftarMahasiswa = new ArrayList();
+    private List<KelasTugasAkhir> daftarKelasTugasAkhir;
+    private TugasAkhir TA;
     
     public void addMahasiswa(Mahasiswa M){
         if(getMahasiswa(M.getNIM()) != -1)
@@ -143,5 +145,38 @@ public class Aplikasi {
             daftarDosen.get(getDosen(NID)).setEmail(Email_baru);
     }
     
+    public void CreateKelasTugasAkhir(){
+        daftarKelasTugasAkhir = new ArrayList(); 
+    }
     
+    public void addKelasTugasAkhir(String Topik){
+        KelasTugasAkhir k = new KelasTugasAkhir(Topik);
+        daftarKelasTugasAkhir.add(k);
+    }
+    
+    public int getKelasTugasAkhir(String Topik){
+        int i;
+        boolean found = false;
+        
+        for ( i = 0; i < daftarKelasTugasAkhir.size(); i++) {
+            if(daftarKelasTugasAkhir.get(i).getTopik() == Topik){
+                found = true;
+                break;
+            }
+        }
+        
+        if(found){
+            return i;
+        }else
+            return -1;
+    }
+    
+    //menambahkan data mahasiswa beserta judul TA dan pembimbingnya kedalam kelas tugas akhir dengan Topik yang sama
+    public void addDataMahasiswa(String Nama, String NIM, String Gender, String Email ,String Topik){
+        Mahasiswa M = new Mahasiswa(Nama,NIM,Gender,Email);
+        M.CreateTA(Topik);
+        if(getKelasTugasAkhir(Topik) != -1){
+            daftarKelasTugasAkhir.get(getKelasTugasAkhir(Topik)).addMahasiswa(M);
+        }
+    }
 }
